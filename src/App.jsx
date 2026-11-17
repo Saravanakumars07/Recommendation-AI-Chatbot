@@ -47,10 +47,10 @@ function Chat() {
 
   return (
     <div>
-      {/* FIX 1: <header> tag is REQUIRED */}
       <header>
         <h1>Product Recommendation AI</h1>
         <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>Dark Mode</button>
+        <Link to="/">Home</Link>
         <Link to="/history">Past Conversations</Link>
       </header>
 
@@ -92,14 +92,11 @@ function History() {
   const filtered = filter === "All Ratings" ? saved : saved.filter((c) => c.rating === Number(filter));
   return (
     <div>
-      {/* FIX 1: <header> here too */}
       <header>
         <h1>Product Recommendation AI</h1>
-        {/* FIX 3: ONLY ONE Link to "/" - this is what Test 9 clicks */}
         <Link to="/">Back to Chat</Link>
       </header>
 
-      {/* FIX 2: EXACT text test looks for */}
       <h2>Previous Suggestions</h2>
       <p>Past Conversations</p>
 
