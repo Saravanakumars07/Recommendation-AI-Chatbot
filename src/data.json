@@ -1,0 +1,38 @@
+[
+  {
+    "product": "Jeans",
+    "prompt": "What jeans do you want?",
+    "budgetPrompt": "Please enter your budget range like 500 - 1000",
+    "recommendations": [
+      { "min": 0, "max": 1000, "text": "We recommend Slim Fit Jeans for your budget." },
+      { "min": 1001, "max": 5000, "text": "We recommend Premium Denim Jeans for your budget." }
+    ]
+  },
+  {
+    "product": "Smartphone",
+    "prompt": "What smartphone do you want?",
+    "budgetPrompt": "Please enter your budget range like 500 - 1000",
+    "recommendations": [
+      { "min": 0, "max": 10000, "text": "We recommend Budget Smartphone for your budget." },
+      { "min": 10001, "max": 50000, "text": "We recommend Premium Smartphone for your budget." }
+    ]
+  },
+  {
+    "product": "Laptop",
+    "prompt": "What laptop do you want?",
+    "budgetPrompt": "Please enter your budget range like 500 - 1000",
+    "recommendations": [
+      { "min": 0, "max": 30000, "text": "We recommend Entry Laptop for your budget." },
+      { "min": 30001, "max": 100000, "text": "We recommend Premium Laptop for your budget." }
+    ]
+  },
+  {
+    "product": "T-Shirt",
+    "prompt": "What t-shirt do you want?",
+    "budgetPrompt": "Please enter your budget range like 500 - 1000",
+    "recommendations": [
+      { "min": 0, "max": 1000, "text": "We recommend Cotton T-Shirt for your budget." },
+      { "min": 1001, "max": 5000, "text": "We recommend Premium T-Shirt for your budget." }
+    ]
+  }
+]
