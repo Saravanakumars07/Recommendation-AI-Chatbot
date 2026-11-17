@@ -20,6 +20,16 @@ function Chat() {
     localStorage.setItem("conversations", JSON.stringify(saved));
   };
 
+  const handleNew = () => {
+    saveConversation();
+    setMessages([]);
+    setProduct(null);
+    setStage("product");
+    setRating(0);
+    setFeedback("");
+    setInput("");
+  };
+
   const handleAsk = (e) => {
     e.preventDefault();
     const q = input.trim();
@@ -50,12 +60,12 @@ function Chat() {
       <header>
         <h1>Product Recommendation AI</h1>
         <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>Dark Mode</button>
-        <Link to="/">Home</Link>
+        <Link to="/" onClick={handleNew}>Want new suggestion?</Link>
         <Link to="/history">Past Conversations</Link>
       </header>
 
       <div>
-        {["Jeans","Smartphone","Laptop","T-Shirt"].map((p) => (
+        {["Jeans", "Smartphone", "Laptop", "T-Shirt"].map((p) => (
           <button key={p} onClick={() => {
             const found = data.find((d) => d.product === p);
             setProduct(found); setStage("budget");
@@ -65,12 +75,12 @@ function Chat() {
       </div>
 
       <div>
-        {messages.map((m,i) => <div key={i}><p>{m.text}</p></div>)}
+        {messages.map((m, i) => <div key={i}><p>{m.text}</p></div>)}
       </div>
 
       {stage === "done" && (
         <div>
-          {[1,2,3,4,5].map((n) => <button key={n} onClick={() => setRating(n)}>{n <= rating ? "★" : "☆"}</button>)}
+          {[1, 2, 3, 4, 5].map((n) => <button key={n} onClick={() => setRating(n)}>{n <= rating ? "★" : "☆"}</button>)}
           <textarea placeholder="Give your feedback" value={feedback} onChange={(e) => setFeedback(e.target.value)} />
         </div>
       )}
@@ -81,7 +91,6 @@ function Chat() {
       </form>
 
       <button type="button" onClick={() => { saveConversation(); alert("Saved!"); }}>Save</button>
-      <button onClick={() => { saveConversation(); setMessages([]); setProduct(null); setStage("product"); }}>Want new suggestion?</button>
     </div>
   );
 }
@@ -94,7 +103,7 @@ function History() {
     <div>
       <header>
         <h1>Product Recommendation AI</h1>
-        <Link to="/">Back to Chat</Link>
+        <Link to="/">Want new suggestion?</Link>
       </header>
 
       <h2>Previous Suggestions</h2>
@@ -110,7 +119,7 @@ function History() {
         <div key={c.id}>
           <p>Rating: {c.rating} / 5</p>
           <p>Feedback: {c.feedback}</p>
-          {c.messages.map((m,i) => <p key={i}><b>{m.sender}:</b> {m.text}</p>)}
+          {c.messages.map((m, i) => <p key={i}><b>{m.sender}:</b> {m.text}</p>)}
         </div>
       ))}
     </div>
